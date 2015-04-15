@@ -4,6 +4,11 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" /> 
 		<style>
+			html, body {
+			  width:  100%;
+			  height: 100%;
+			  margin: 0px;
+			}
 			#canvas {
 				position: absolute;
 				top: 100px;
@@ -31,7 +36,7 @@
 				<label for="weight">Weight</label>
 				<input type="range" id="weight" min="1" value="2" max="10" step="1" oninput="weightUpdate(value)">
 			</div>
-			<canvas id="canvas" width="500px" height="500px"></canvas>
+			<canvas id="canvas"></canvas>
 		</div>
 		<script>
 		var point = {
@@ -75,9 +80,11 @@
 
 		function setUpCanvas(){
 			// set up initial context
-			var w = 200; // w,h of one box
+			var w = Math.min(window.innerWidth-60,window.innerHeight-100); // w,h of one box
 			var canvas = document.getElementById("canvas");
 			var ctx = canvas.getContext("2d");
+			ctx.canvas.width  = w;
+			ctx.canvas.height = w;
 			ctx.clearRect(0,0,canvas.width,canvas.height);
 			ctx.strokeStyle = "#000";
 			ctx.lineWidth = 1;
@@ -87,7 +94,7 @@
 			ctx.strokeRect(w/2+30,w/2+30,w/2,w/2);
 			ctx.fillStyle = '#000';
 			ctx.font = "18px sans-serif";
-			ctx.fillText("My level of satisfaction", 40, 250);
+			ctx.fillText("My level of satisfaction", 40, w+40);
 			ctx.save();
 			ctx.translate( 0, canvas.height / 2 );
 			ctx.rotate( 3*Math.PI / 2);

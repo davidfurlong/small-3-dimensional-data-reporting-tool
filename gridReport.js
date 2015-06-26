@@ -184,11 +184,19 @@ function gridReport(options){
 		this.canvasJQO.on('mousedown touchstart', function(event){
 			elemLeft = canvas.offsetLeft;
 			elemTop = canvas.offsetTop;
-		    var x = event.pageX - elemLeft,
-	       		y = event.pageY - elemTop; 
-	       	alert(x+" "+y+" "+gr.w+" "+elemLeft+" "+elemTop);
+			var x,y;
+			if(event.type == "mousedown"){ // web
+			    x = event.pageX - elemLeft;
+		       	y = event.pageY - elemTop; 
+			}
+			else { // mobile
+				x = event.originalEvent.touches[0].pageX - elemLeft;
+				y = event.originalEvent.touches[0].pageY - elemTop
+			}
+		    
+	       	// alert(x+" "+y+" "+gr.w+" "+elemLeft+" "+elemTop);
 			if (y < gr.w-30 && y > 30 && x < gr.w-30 && x > 30 && !gr.pointDefined){
-				alert('2');
+				// alert('2');
 				gr.startingWeight = parseInt($('#gridReportWeight').val());
 
 				gr.loopcounter = 0;

@@ -187,6 +187,7 @@ function gridReport(options){
 			elemTop = canvas.offsetTop;
 		    var x = event.pageX - elemLeft,
 	       		y = event.pageY - elemTop; 
+	       	alert(x,y,gr.w,elemLeft,elemTop);
 			if (y < gr.w-30 && y > 30 && x < gr.w-30 && x > 30 && !gr.pointDefined){
 				alert('2');
 				gr.startingWeight = parseInt($('#gridReportWeight').val());

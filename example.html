@@ -22,6 +22,7 @@
 		</style>	
 	</head>
 	<body>
+
 		<div class="container-fluid">
 			<div id="gridContainer">
 			</div>
@@ -41,6 +42,8 @@
 				pointColor: "#000", // default: #aaa
 				lineColor: "#ccc" // default: #ccc
 			});
+			window.o.setStartingValue(0.6,0.2,0.5,true);
 		</script>
+		<input type="button" value="Reset" onclick="window.o.reset()">
 	</body>
 </html>

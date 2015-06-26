@@ -154,15 +154,19 @@ function gridReport(options){
 		    	ctx.beginPath();
 		    	ctx.lineCap = "round";
 		    	ctx.moveTo(this.startingPoint.x, this.startingPoint.y);
-		    	ctx.lineWidth = 3; // TODO is this wrong
+		    	ctx.lineWidth = 3;
 		    	ctx.lineTo(this.nextPoint.x, this.nextPoint.y);
 		    	ctx.strokeStyle = this.lineColor;
 		    	ctx.stroke();
 				
 		    	// arrow
+
+		    	// figuring out where to draw the arrow
+		    	var theta = Math.atan2(this.nextPoint.y-this.startingPoint.y,this.nextPoint.x-this.startingPoint.x);
+
 				ctx.save();
 				ctx.translate(this.nextPoint.x, this.nextPoint.y);
-				ctx.rotate(Math.atan2(this.nextPoint.y-this.startingPoint.y,this.nextPoint.x-this.startingPoint.x));
+				ctx.rotate(theta);
 				ctx.fillStyle = this.lineColor;
 
 				ctx.beginPath();

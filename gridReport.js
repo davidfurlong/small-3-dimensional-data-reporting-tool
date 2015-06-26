@@ -228,7 +228,11 @@ function gridReport(options){
 			}
 		});
 
-		this.canvasJQO.on('mouseup touchend', function(event) {
+		canvas.addEventListener('mouseup', function(event) {
+			interval.clearAll();
+		}, false);
+
+		canvas.addEventListener('touchend', function(event) {
 			interval.clearAll();
 		}, false);
 

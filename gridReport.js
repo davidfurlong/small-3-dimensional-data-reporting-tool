@@ -182,6 +182,7 @@ function gridReport(options){
 		}
 
 		this.canvasJQO.on('mousedown touchstart', function(event){
+			alert('firing');
 			elemLeft = canvas.offsetLeft;
 			elemTop = canvas.offsetTop;
 		    var x = event.pageX - elemLeft,

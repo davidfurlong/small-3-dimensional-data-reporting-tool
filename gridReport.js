@@ -1,8 +1,23 @@
 // Copyright 2015 David Furlong
 
-var gr; // should be map: DOM elems -> gridReport Objects
-// is just the gridReport object.
+var gr; // stores grid report in global scope
 
+// jquery plugin to prevent selection
+$.fn.extend({
+    disableSelection: function() {
+        this.each(function() {
+            this.onselectstart = function() {
+                return false;
+            };
+            this.unselectable = "on";
+            $(this).css('-moz-user-select', 'none');
+            $(this).css('-webkit-user-select', 'none');
+        });
+    }
+});
+
+
+// stores intervals for clearing.
 var interval = {
     //to keep a reference to all the intervals
     intervals : {},
@@ -68,6 +83,7 @@ function gridReport(options){
 	this.initialSetup = function(){
 		var center = $('<center></center>');
 		this.canvasJQO = $('<canvas id="gridReportCanvas"></canvas>');
+		this.canvasJQO.disableSelection();
 		$('#'+this.containerId).append(center);
 		center.append(this.canvasJQO);
 		this.resizeCanvas();

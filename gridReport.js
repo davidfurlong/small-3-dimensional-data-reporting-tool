@@ -196,14 +196,12 @@ function gridReport(options){
 		    
 	       	// alert(x+" "+y+" "+gr.w+" "+elemLeft+" "+elemTop);
 			if (y < gr.w-30 && y > 30 && x < gr.w-30 && x > 30 && !gr.pointDefined){
-				// alert('2');
 				gr.startingWeight = parseInt($('#gridReportWeight').val());
 
 				gr.loopcounter = 0;
 				interval.clearAll();
 				interval.make(
 					function(){
-						alert('3');
 						gr.loopcounter++;
 						var t = Math.min(10, gr.startingWeight+gr.loopcounter);
 						$('#gridReportWeight').val(t);

@@ -12,6 +12,7 @@ $.fn.extend({
             this.unselectable = "on";
             $(this).css('-moz-user-select', 'none');
             $(this).css('-webkit-user-select', 'none');
+            $(this).css('-webkit-touch-callout', 'none');
         });
     }
 });
@@ -83,7 +84,6 @@ function gridReport(options){
 	this.initialSetup = function(){
 		var center = $('<center></center>');
 		this.canvasJQO = $('<canvas id="gridReportCanvas"></canvas>');
-		this.canvasJQO.disableSelection();
 		$('#'+this.containerId).append(center);
 		center.append(this.canvasJQO);
 		this.resizeCanvas();
@@ -103,6 +103,7 @@ function gridReport(options){
 			}
 			else console.error('invalid sliderPosition for gridReport')
 		}
+		$('#'+this.containerId).disableSelection();
 
 		this.drawCanvas();
 	}

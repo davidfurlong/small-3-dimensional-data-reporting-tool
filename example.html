@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" /> 
+		<style>
+			html, body {
+			  width:  100%;
+			  height: 100%;
+			  margin: 0;
+			  font-size: 1em;
+			}
+			#gridContainer {
+				width: 100%;
+				height: 100%;
+			}
+			.container-fluid {
+				padding: 0;
+				margin: 0;
+			}
+
+		</style>	
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div id="gridContainer">
+			</div>
+		</div>
+		<script>
+			window.o = new gridReport({
+				showSlider: true, // default: false
+				sliderPosition: "above", // options: above, below | default: above
+				threeDimensions: true, // default: false
+				containerId: "gridContainer", // required
+				xLabel: "Performance", // default: ""
+				yLabel: "Happiness", // default: ""
+				wLabel: "weight", // default: ""
+				strokeColor: "#000", // default: #000
+				labelColor: "#000", // default: #000
+				labelStyle: "30px sans-serif", // default: 30px sans-serif
+				pointColor: "#000", // default: #aaa
+				lineColor: "#ccc" // default: #ccc
+			});
+		</script>
+	</body>
+</html>
